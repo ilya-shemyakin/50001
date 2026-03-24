@@ -3,10 +3,10 @@
 
 struct Point
 {
-    double x_; 
-    double y_; 
+	double x_;
+	double y_;
 
-    Point(double x, double y) : x_(x), y_(y) {}
+	Point(double x, double y) : x_(x), y_(y) {}
 };
 
 #endif
