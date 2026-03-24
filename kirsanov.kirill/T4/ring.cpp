@@ -1,42 +1,42 @@
-#include "ring.h"
+п»ї#include "ring.h"
 
 #include <cmath>
 #include <iostream>
 #include <iomanip>
 #include <stdexcept>
 
-// Конструктор кольца
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕР»СЊС†Р°
 Ring::Ring(const Point& center, double outerR, double innerR)
 	: center_(center), outerR_(outerR), innerR_(innerR)
 {
-	// Проверка корректности радиусов
+	// РџСЂРѕРІРµСЂРєР° РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚Рё СЂР°РґРёСѓСЃРѕРІ
 	if (outerR <= 0 || innerR <= 0 || innerR >= outerR)
 	{
 		throw std::invalid_argument("Incorrect ring radii");
 	}
 }
 
-// Площадь кольца
+// РџР»РѕС‰Р°РґСЊ РєРѕР»СЊС†Р°
 double Ring::getArea() const
 {
 	const double PI = 3.141592653589793;
 	return PI * (outerR_ * outerR_ - innerR_ * innerR_);
 }
 
-// Центр кольца
+// Р¦РµРЅС‚СЂ РєРѕР»СЊС†Р°
 Point Ring::getCenter() const
 {
 	return center_;
 }
 
-// Перемещение
+// РџРµСЂРµРјРµС‰РµРЅРёРµ
 void Ring::move(double dx, double dy)
 {
 	center_.x_ += dx;
 	center_.y_ += dy;
 }
 
-// Масштабирование
+// РњР°СЃС€С‚Р°Р±РёСЂРѕРІР°РЅРёРµ
 void Ring::scale(double k)
 {
 	if (k <= 0)
@@ -48,13 +48,13 @@ void Ring::scale(double k)
 	innerR_ *= k;
 }
 
-// Имя фигуры
+// РРјСЏ С„РёРіСѓСЂС‹
 const char* Ring::getName() const
 {
 	return "RING";
 }
 
-// Вывод информации
+// Р’С‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё
 void Ring::printInfo() const
 {
 	std::cout << std::fixed << std::setprecision(2);

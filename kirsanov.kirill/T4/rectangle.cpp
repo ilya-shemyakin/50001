@@ -1,21 +1,21 @@
-#include "rectangle.h"
+п»ї#include "rectangle.h"
 #include <iostream>
 #include <iomanip>
 
-// Конструктор
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 Rectangle::Rectangle(const Point& lb, const Point& rt)
 	: lb_(lb), rt_(rt) {
 }
 
 
-// Площадь 
+// РџР»РѕС‰Р°РґСЊ 
 double Rectangle::getArea() const
 {
 	return (rt_.x_ - lb_.x_) * (rt_.y_ - lb_.y_);
 }
 
 
-// Центр — середина диагонали
+// Р¦РµРЅС‚СЂ вЂ” СЃРµСЂРµРґРёРЅР° РґРёР°РіРѕРЅР°Р»Рё
 Point Rectangle::getCenter() const
 {
 	return Point(
@@ -25,7 +25,7 @@ Point Rectangle::getCenter() const
 }
 
 
-// Перемещение — сдвигаем обе вершины
+// РџРµСЂРµРјРµС‰РµРЅРёРµ вЂ” СЃРґРІРёРіР°РµРј РѕР±Рµ РІРµСЂС€РёРЅС‹
 void Rectangle::move(double dx, double dy)
 {
 	lb_.x_ += dx;
@@ -35,7 +35,7 @@ void Rectangle::move(double dx, double dy)
 }
 
 
-// Масштабирование относительно центра
+// РњР°СЃС€С‚Р°Р±РёСЂРѕРІР°РЅРёРµ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ С†РµРЅС‚СЂР°
 void Rectangle::scale(double k)
 {
 	Point c = getCenter();
@@ -47,14 +47,14 @@ void Rectangle::scale(double k)
 }
 
 
-// Название фигуры
+// РќР°Р·РІР°РЅРёРµ С„РёРіСѓСЂС‹
 const char* Rectangle::getName() const
 {
 	return NAME;
 }
 
 
-// Вывод информации о прямоугольнике
+// Р’С‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєРµ
 void Rectangle::printInfo() const
 {
 	std::cout << std::fixed << std::setprecision(2);

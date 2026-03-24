@@ -1,4 +1,4 @@
-#include "rectangle.h"
+п»ї#include "rectangle.h"
 #include "ring.h"
 #include "compositeShape.h"
 #include <vector>
@@ -10,7 +10,7 @@ int main()
 {
 	std::vector<std::unique_ptr<Shape>> figures;
 
-	// Создание составной фигуры
+	// РЎРѕР·РґР°РЅРёРµ СЃРѕСЃС‚Р°РІРЅРѕР№ С„РёРіСѓСЂС‹
 	auto comp = std::make_unique<CompositeShape>();
 
 	comp->addShape(
@@ -23,7 +23,7 @@ int main()
 
 	figures.push_back(std::move(comp));
 
-	// Добавляем отдельные фигуры
+	// Р”РѕР±Р°РІР»СЏРµРј РѕС‚РґРµР»СЊРЅС‹Рµ С„РёРіСѓСЂС‹
 	figures.push_back(
 		std::make_unique<Rectangle>(Point(0, 1), Point(4, 6))
 	);
@@ -32,17 +32,17 @@ int main()
 		std::make_unique<Ring>(Point(3, 4), 6, 1)
 	);
 
-	// Вывод до масштабирования
+	// Р’С‹РІРѕРґ РґРѕ РјР°СЃС€С‚Р°Р±РёСЂРѕРІР°РЅРёСЏ
 	std::cout << "Before scale:\n";
 
 	for (const auto& f : figures)
 		f->printInfo();
 
-	// Масштабирование в 2 раза
+	// РњР°СЃС€С‚Р°Р±РёСЂРѕРІР°РЅРёРµ РІ 2 СЂР°Р·Р°
 	for (auto& f : figures)
 		f->scale(2);
 
-	// Вывод после масштабирования
+	// Р’С‹РІРѕРґ РїРѕСЃР»Рµ РјР°СЃС€С‚Р°Р±РёСЂРѕРІР°РЅРёСЏ
 	std::cout << "\nAfter scale:\n";
 
 	for (const auto& f : figures)

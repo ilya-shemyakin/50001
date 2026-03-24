@@ -1,4 +1,4 @@
-#ifndef RECTANGLE_H
+п»ї#ifndef RECTANGLE_H
 #define RECTANGLE_H
 
 #include "shape.h"
@@ -7,30 +7,30 @@
 class Rectangle : public Shape
 {
 public:
-	// Конструктор с параметрами
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 	Rectangle(const Point& lb, const Point& rt);
 
-	// Площадь прямоугольника
+	// РџР»РѕС‰Р°РґСЊ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР°
 	double getArea() const override;
 
-	// Центр — пересечение диагоналей
+	// Р¦РµРЅС‚СЂ вЂ” РїРµСЂРµСЃРµС‡РµРЅРёРµ РґРёР°РіРѕРЅР°Р»РµР№
 	Point getCenter() const override;
 
-	// Перемещение фигуры
+	// РџРµСЂРµРјРµС‰РµРЅРёРµ С„РёРіСѓСЂС‹
 	void move(double dx, double dy) override;
 
-	// Масштабирование относительно центра
+	// РњР°СЃС€С‚Р°Р±РёСЂРѕРІР°РЅРёРµ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ С†РµРЅС‚СЂР°
 	void scale(double k) override;
 
-	// Название фигуры
+	// РќР°Р·РІР°РЅРёРµ С„РёРіСѓСЂС‹
 	const char* getName() const override;
 
-	// Вывод информации
+	// Р’С‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё
 	void printInfo() const override;
 
 private:
-	Point lb_; // левый нижний угол
-	Point rt_; // правый верхний угол
+	Point lb_; // Р»РµРІС‹Р№ РЅРёР¶РЅРёР№ СѓРіРѕР»
+	Point rt_; // РїСЂР°РІС‹Р№ РІРµСЂС…РЅРёР№ СѓРіРѕР»
 
 	static constexpr const char* NAME = "RECTANGLE";
 };

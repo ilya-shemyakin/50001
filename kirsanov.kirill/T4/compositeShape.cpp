@@ -1,15 +1,15 @@
-#include "compositeShape.h"
+п»ї#include "compositeShape.h"
 #include <iostream>
 #include <iomanip>
 
-// Добавление фигуры в контейнер
+// Р”РѕР±Р°РІР»РµРЅРёРµ С„РёРіСѓСЂС‹ РІ РєРѕРЅС‚РµР№РЅРµСЂ
 void CompositeShape::addShape(std::unique_ptr<Shape> shape)
 {
 	shapes_.push_back(std::move(shape));
 }
 
 
-// Суммарная площадь всех фигур
+// РЎСѓРјРјР°СЂРЅР°СЏ РїР»РѕС‰Р°РґСЊ РІСЃРµС… С„РёРіСѓСЂ
 double CompositeShape::getArea() const
 {
 	double sum = 0;
@@ -21,7 +21,7 @@ double CompositeShape::getArea() const
 }
 
 
-// Центр составной фигуры — среднее центров
+// Р¦РµРЅС‚СЂ СЃРѕСЃС‚Р°РІРЅРѕР№ С„РёРіСѓСЂС‹ вЂ” СЃСЂРµРґРЅРµРµ С†РµРЅС‚СЂРѕРІ
 Point CompositeShape::getCenter() const
 {
 	double sx = 0;
@@ -38,7 +38,7 @@ Point CompositeShape::getCenter() const
 }
 
 
-// Перемещение всех фигур
+// РџРµСЂРµРјРµС‰РµРЅРёРµ РІСЃРµС… С„РёРіСѓСЂ
 void CompositeShape::move(double dx, double dy)
 {
 	for (auto& s : shapes_)
@@ -46,7 +46,7 @@ void CompositeShape::move(double dx, double dy)
 }
 
 
-// Масштабирование всех фигур
+// РњР°СЃС€С‚Р°Р±РёСЂРѕРІР°РЅРёРµ РІСЃРµС… С„РёРіСѓСЂ
 void CompositeShape::scale(double k)
 {
 	for (auto& s : shapes_)
@@ -54,14 +54,14 @@ void CompositeShape::scale(double k)
 }
 
 
-// Название фигуры
+// РќР°Р·РІР°РЅРёРµ С„РёРіСѓСЂС‹
 const char* CompositeShape::getName() const
 {
 	return NAME;
 }
 
 
-// Вывод информации о составной фигуре
+// Р’С‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё Рѕ СЃРѕСЃС‚Р°РІРЅРѕР№ С„РёРіСѓСЂРµ
 void CompositeShape::printInfo() const
 {
 	std::cout << std::fixed << std::setprecision(2);

@@ -1,4 +1,4 @@
-#ifndef RING_H
+п»ї#ifndef RING_H
 #define RING_H
 
 #include "shape.h"
@@ -6,31 +6,31 @@
 class Ring : public Shape
 {
 public:
-	// Конструктор с параметрами
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 	Ring(const Point& c, double outerR, double innerR);
 
-	// Площадь кольца
+	// РџР»РѕС‰Р°РґСЊ РєРѕР»СЊС†Р°
 	double getArea() const override;
 
-	// Центр кольца
+	// Р¦РµРЅС‚СЂ РєРѕР»СЊС†Р°
 	Point getCenter() const override;
 
-	// Перемещение
+	// РџРµСЂРµРјРµС‰РµРЅРёРµ
 	void move(double dx, double dy) override;
 
-	// Масштабирование радиусов
+	// РњР°СЃС€С‚Р°Р±РёСЂРѕРІР°РЅРёРµ СЂР°РґРёСѓСЃРѕРІ
 	void scale(double k) override;
 
-	// Название фигуры
+	// РќР°Р·РІР°РЅРёРµ С„РёРіСѓСЂС‹
 	const char* getName() const override;
 
-	// Вывод информации
+	// Р’С‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё
 	void printInfo() const override;
 
 private:
-	Point center_;   // центр кольца
-	double outerR_;  // внешний радиус
-	double innerR_;  // внутренний радиус
+	Point center_;   // С†РµРЅС‚СЂ РєРѕР»СЊС†Р°
+	double outerR_;  // РІРЅРµС€РЅРёР№ СЂР°РґРёСѓСЃ
+	double innerR_;  // РІРЅСѓС‚СЂРµРЅРЅРёР№ СЂР°РґРёСѓСЃ
 
 	static constexpr const char* NAME = "RING";
 };
