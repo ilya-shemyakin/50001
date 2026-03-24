@@ -10,30 +10,30 @@ classCompositeShape:publicShape
 {
 public:
 //Добавлениефигуры
-voidaddShape(std::unique_ptr<Shape>shape);
+void addShape(std::unique_ptr<Shape>shape);
 
 //Суммарнаяплощадь
-doublegetArea()constoverride;
+double getArea() const override;
 
 //Центрсоставнойфигуры
-PointgetCenter()constoverride;
+Point getCenter() const override;
 
 //Перемещениевсехфигур
-voidmove(doubledx,doubledy)override;
+void move(doubledx,doubledy)override;
 
 //Масштабированиевсехфигур
-voidscale(doublek)override;
+void scale(doublek)override;
 
 //Название
-constchar*getName()constoverride;
+const char* getName()constoverride;
 
 //Выводинформации
-voidprintInfo()constoverride;
+void printInfo()constoverride;
 
 private:
 std::vector<std::unique_ptr<Shape>>shapes_;
 
-staticconstexprconstchar*NAME="COMPOSITE";
+static const expr const char* NAME="COMPOSITE";
 };
 
 #endif

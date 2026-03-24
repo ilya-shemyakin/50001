@@ -1,12 +1,12 @@
-#ifndefPOINT_H
-#definePOINT_H
+#ifndef POINT_H
+#define POINT_H
 
-structPoint
+struct Point
 {
-doublex_;
-doubley_;
+double x_;
+double y_;
 
-Point(doublex,doubley):x_(x),y_(y){}
+Point (double x,double y):x_(x),y_(y){}
 };
 
 #endif

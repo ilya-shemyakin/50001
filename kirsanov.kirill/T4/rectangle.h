@@ -1,38 +1,38 @@
-﻿#ifndefRECTANGLE_H
-#defineRECTANGLE_H
+﻿#ifndef RECTANGLE_H
+#define RECTANGLE_H
 
 #include"shape.h"
 
 
-classRectangle:publicShape
+class Rectangle:publicShape
 {
 public:
 //Конструкторспараметрами
-Rectangle(constPoint&lb,constPoint&rt);
+Rectangle(constPoint &lb,constPoint &rt);
 
 //Площадьпрямоугольника
-doublegetArea()constoverride;
+double getArea() const override;
 
 //Центр—пересечениедиагоналей
-PointgetCenter()constoverride;
+Point getCenter() const override;
 
 //Перемещениефигуры
-voidmove(doubledx,doubledy)override;
+void move(double dx,double dy) override;
 
 //Масштабированиеотносительноцентра
-voidscale(doublek)override;
+void scale(double k) override;
 
 //Названиефигуры
-constchar*getName()constoverride;
+const char* getName() constoverride;
 
 //Выводинформации
-voidprintInfo()constoverride;
+void printInfo() constoverride;
 
 private:
-Pointlb_;//левыйнижнийугол
-Pointrt_;//правыйверхнийугол
+Point lb_;//левыйнижнийугол
+Point rt_;//правыйверхнийугол
 
-staticconstexprconstchar*NAME="RECTANGLE";
+static const expr constchar* NAME="RECTANGLE";
 };
 
 #endif
