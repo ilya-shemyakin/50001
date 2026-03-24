@@ -1,31 +1,31 @@
-﻿#ifndef SHAPE_H
-#define SHAPE_H
+﻿#ifndefSHAPE_H
+#defineSHAPE_H
 
-#include "point.h"
+#include"point.h"
 
-// Базовый класс для всех геометрических фигур
-class Shape
+//Базовыйклассдлявсехгеометрическихфигур
+classShape
 {
 public:
-	virtual ~Shape() = default; // виртуальный деструктор
+virtual~Shape()=default;//виртуальныйдеструктор
 
-	// Вычисление площади фигуры
-	virtual double getArea() const = 0;
+//Вычислениеплощадифигуры
+virtualdoublegetArea()const=0;
 
-	// Получение центра фигуры
-	virtual Point getCenter() const = 0;
+//Получениецентрафигуры
+virtualPointgetCenter()const=0;
 
-	// Перемещение фигуры на dx и dy
-	virtual void move(double dx, double dy) = 0;
+//Перемещениефигурынаdxиdy
+virtualvoidmove(doubledx,doubledy)=0;
 
-	// Масштабирование относительно центра
-	virtual void scale(double k) = 0;
+//Масштабированиеотносительноцентра
+virtualvoidscale(doublek)=0;
 
-	// Получение названия фигуры
-	virtual const char* getName() const = 0;
+//Получениеназванияфигуры
+virtualconstchar*getName()const=0;
 
-	// Вывод информации о фигуре
-	virtual void printInfo() const = 0;
+//Выводинформацииофигуре
+virtualvoidprintInfo()const=0;
 };
 
 #endif

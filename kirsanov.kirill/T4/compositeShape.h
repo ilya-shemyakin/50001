@@ -1,39 +1,39 @@
-﻿#ifndef COMPOSITE_SHAPE_H
-#define COMPOSITE_SHAPE_H
+﻿#ifndefCOMPOSITE_SHAPE_H
+#defineCOMPOSITE_SHAPE_H
 
-#include "shape.h"
-#include <vector>
-#include <memory>
+#include"shape.h"
+#include<vector>
+#include<memory>
 
 
-class CompositeShape : public Shape
+classCompositeShape:publicShape
 {
 public:
-	// Добавление фигуры
-	void addShape(std::unique_ptr<Shape> shape);
+//Добавлениефигуры
+voidaddShape(std::unique_ptr<Shape>shape);
 
-	// Суммарная площадь
-	double getArea() const override;
+//Суммарнаяплощадь
+doublegetArea()constoverride;
 
-	// Центр составной фигуры
-	Point getCenter() const override;
+//Центрсоставнойфигуры
+PointgetCenter()constoverride;
 
-	// Перемещение всех фигур
-	void move(double dx, double dy) override;
+//Перемещениевсехфигур
+voidmove(doubledx,doubledy)override;
 
-	// Масштабирование всех фигур
-	void scale(double k) override;
+//Масштабированиевсехфигур
+voidscale(doublek)override;
 
-	// Название
-	const char* getName() const override;
+//Название
+constchar*getName()constoverride;
 
-	// Вывод информации
-	void printInfo() const override;
+//Выводинформации
+voidprintInfo()constoverride;
 
 private:
-	std::vector<std::unique_ptr<Shape>> shapes_;
+std::vector<std::unique_ptr<Shape>>shapes_;
 
-	static constexpr const char* NAME = "COMPOSITE";
+staticconstexprconstchar*NAME="COMPOSITE";
 };
 
 #endif
