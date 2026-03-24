@@ -1,39 +1,39 @@
-﻿#ifndefCOMPOSITE_SHAPE_H
-#defineCOMPOSITE_SHAPE_H
+﻿#ifndef COMPOSITE_SHAPE_H
+#define COMPOSITE_SHAPE_H
 
-#include"shape.h"
-#include<vector>
-#include<memory>
+#include "shape.h"
+#include <vector>
+#include <memory>
 
 
-classCompositeShape:publicShape
+class CompositeShape:public Shape
 {
 public:
-//Добавлениефигуры
+//Добавление фигуры
 void addShape(std::unique_ptr<Shape>shape);
 
-//Суммарнаяплощадь
+//Суммарная площадь
 double getArea() const override;
 
-//Центрсоставнойфигуры
+//Центр составной фигуры
 Point getCenter() const override;
 
-//Перемещениевсехфигур
-void move(doubledx,doubledy)override;
+//Перемещение всех фигур
+void move(double dx,double dy) override;
 
-//Масштабированиевсехфигур
-void scale(doublek)override;
+//Масштабирование всех фигур
+void scale(double k) override;
 
 //Название
-const char* getName()constoverride;
+const char* getName() const override;
 
 //Выводинформации
-void printInfo()constoverride;
+void printInfo() const override;
 
 private:
 std::vector<std::unique_ptr<Shape>>shapes_;
 
-static const expr const char* NAME="COMPOSITE";
+static constexpr const char* NAME="COMPOSITE";
 };
 
 #endif
