@@ -1,4 +1,4 @@
-﻿#include "ring.h"
+#include "ring.h"
 
 #include <cmath>
 #include <iostream>

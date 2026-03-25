@@ -1,4 +1,4 @@
-﻿#include "compositeShape.h"
+#include "compositeShape.h"
 #include <iostream>
 #include <iomanip>
 

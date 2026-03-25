@@ -1,4 +1,4 @@
-﻿#ifndef SHAPE_H
+#ifndef SHAPE_H
 #define SHAPE_H
 
 #include "point.h"

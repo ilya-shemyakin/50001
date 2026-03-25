@@ -1,4 +1,4 @@
-﻿#include "rectangle.h"
+#include "rectangle.h"
 #include "ring.h"
 #include "compositeShape.h"
 #include <vector>

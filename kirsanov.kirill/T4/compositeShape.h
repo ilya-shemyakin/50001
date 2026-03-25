@@ -1,4 +1,4 @@
-﻿#ifndef COMPOSITE_SHAPE_H
+#ifndef COMPOSITE_SHAPE_H
 #define COMPOSITE_SHAPE_H
 
 #include "shape.h"
