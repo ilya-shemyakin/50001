@@ -3,7 +3,7 @@
 
 struct Point
 {
-	double x_;//координаты
+	double x_;
 	double y_;
 
 	Point(double x, double y) :x_(x), y_(y) {}
