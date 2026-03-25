@@ -9,31 +9,31 @@
 class CompositeShape :public Shape
 {
 public:
-	//Добавление фигуры
-	void addShape(std::unique_ptr<Shape>shape);
+    //Добавление фигуры
+    void addShape(std::unique_ptr<Shape>shape);
 
-	//Суммарная площадь
-	double getArea() const override;
+    //Суммарная площадь
+    double getArea() const override;
 
-	//Центр составной фигуры
-	Point getCenter() const override;
+    //Центр составной фигуры
+    Point getCenter() const override;
 
-	//Перемещение всех фигур
-	void move(double dx, double dy) override;
+    //Перемещение всех фигур
+    void move(double dx, double dy) override;
 
-	//Масштабирование всех фигур
-	void scale(double k) override;
+    //Масштабирование всех фигур
+    void scale(double k) override;
 
-	//Название
-	const char* getName() const override;
+    //Название
+    const char* getName() const override;
 
-	//Выводинформации
-	void printInfo() const override;
+    //Выводинформации
+    void printInfo() const override;
 
 private:
-	std::vector<std::unique_ptr<Shape>>shapes_;
+    std::vector<std::unique_ptr<Shape>>shapes_;
 
-	static constexpr const char* NAME = "COMPOSITE";
+    static constexpr const char* NAME = "COMPOSITE";
 };
 
 #endif
