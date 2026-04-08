@@ -24,7 +24,7 @@ const char* CompositeShape::getName() const
 double CompositeShape::getArea() const
 {
     double S = 0;
-    for (int i = 0; i < shapes.size(); i++) {
+    for (size_t i = 0; i < shapes.size(); i++) {
         S += shapes[i]->getArea();
     }
     return S;
@@ -32,7 +32,7 @@ double CompositeShape::getArea() const
 
 void CompositeShape::move(double moveX, double moveY)
 {
-    for (int i = 0; i < shapes.size(); i++) {
+    for (size_t i = 0; i < shapes.size(); i++) {
         shapes[i]->move(moveX, moveY);
     }
 }
@@ -46,7 +46,7 @@ Point CompositeShape::getCenter() const
     double maxY = maxX;
     double minX = std::numeric_limits<double>::max();
     double minY = minX;
-    for (int i = 0; i < shapes.size(); i++) {
+    for (size_t i = 0; i < shapes.size(); i++) {
         Point cntr = shapes[i]->getCenter();
         maxX = std::max(maxX, cntr.x);
         maxY = std::max(maxY, cntr.y);
@@ -62,7 +62,7 @@ void CompositeShape::scale(double rate)
         throw "Incorrect scale.";
     }
     Point cntr = getCenter();
-    for (int i = 0; i < shapes.size(); i++) {
+    for (size_t i = 0; i < shapes.size(); i++) {
         Point shapeCntr = shapes[i]->getCenter();
         double moveX = (shapeCntr.x - cntr.x) * (rate - 1);
         double moveY = (shapeCntr.y - cntr.y) * (rate - 1);
@@ -75,8 +75,8 @@ void CompositeShape::printInfo() const
 {
     Point cntr = getCenter();
     std::cout << std::setprecision(2) << std::fixed << "[" << getName()
-    << ", (" << cntr.x << ", " << cntr.y << "), " << getArea() << ":";
-    for (int i = 0; i < shapes.size(); i++) {
+        << ", (" << cntr.x << ", " << cntr.y << "), " << getArea() << ":";
+    for (size_t i = 0; i < shapes.size(); i++) {
         std::cout << "\n  ";
         shapes[i]->printInfo();
     }
