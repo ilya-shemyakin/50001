@@ -39,7 +39,7 @@ namespace kirsanov
     // Площадь по формуле Гаусса (шнурков)
     double Polygon::area() const
     {
-        if (points.size() < 3)  // минимально возможное количество вершин
+        if (points.size() < 3)
             return 0.0;
 
         double s = 0.0;
@@ -53,7 +53,7 @@ namespace kirsanov
         return std::abs(s) / 2.0;
     }
 
-    // Проверяем, является ли другой многоугольник перестановкой вершин текущего
+    // Является ли другой многоугольник перестановкой вершин текущего
     // Для этого сортируем вершины (по x, потом по y) и сравниваем
     bool Polygon::isPermutationOf(const Polygon& other) const
     {
@@ -82,9 +82,12 @@ namespace kirsanov
 
         for (size_t i = 0; i < points.size(); ++i)
         {
-            const Point& a = points[i];                     // предыдущая вершина
-            const Point& b = points[(i + 1) % points.size()]; // вершина угла
-            const Point& c = points[(i + 2) % points.size()]; // следующая вершина
+            // предыдущая вершина
+            const Point& a = points[i];
+            // вершина угла
+            const Point& b = points[(i + 1) % points.size()];
+            // следующая вершина
+            const Point& c = points[(i + 2) % points.size()];
 
             // Векторы: ab и bc
             int dx1 = b.x - a.x;
