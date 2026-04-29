@@ -16,7 +16,8 @@ namespace kirsanov
         return !(*this == other);
     }
 
-    // Сравнение двух многоугольников — проверяем одинаковые вершины в одинаковом порядке
+    // Сравнение двух многоугольников
+    // проверяем одинаковые вершины в одинаковом порядке
     bool Polygon::operator==(const Polygon& other) const
     {
         if (points.size() != other.points.size())
@@ -45,7 +46,8 @@ namespace kirsanov
         for (size_t i = 0; i < points.size(); ++i)
         {
             const Point& p1 = points[i];
-            const Point& p2 = points[(i + 1) % points.size()];  // замыкаем на первую точку
+            // замыкаем на первую точку
+            const Point& p2 = points[(i + 1) % points.size()];
             s += static_cast<double>(p1.x * p2.y - p2.x * p1.y);
         }
         return std::abs(s) / 2.0;
