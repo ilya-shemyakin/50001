@@ -40,9 +40,16 @@ void processAreaCommand(const std::vector<Polygon>& polygons, std::istream& in)
         else
         {
             int n = std::stoi(param);
-            std::cout << totalArea(polygons, [n](const Polygon& p) {
-                return p.vertexCount() == static_cast<size_t>(n);
-                }) << "\n";
+            if (n < 3)
+            {
+                std::cout << INVALID_COMMAND << "\n";
+            }
+            else
+            {
+                std::cout << totalArea(polygons, [n](const Polygon& p) {
+                    return p.vertexCount() == static_cast<size_t>(n);
+                    }) << "\n";
+            }
         }
     }
     catch (...)
@@ -127,9 +134,16 @@ void processCountCommand(const std::vector<Polygon>& polygons, std::istream& in)
         else
         {
             int n = std::stoi(param);
-            std::cout << countPolygons(polygons, [n](const Polygon& p) {
-                return p.vertexCount() == static_cast<size_t>(n);
-                }) << "\n";
+            if (n < 3)
+            {
+                std::cout << INVALID_COMMAND << "\n";
+            }
+            else
+            {
+                std::cout << countPolygons(polygons, [n](const Polygon& p) {
+                    return p.vertexCount() == static_cast<size_t>(n);
+                    }) << "\n";
+            }
         }
     }
     catch (...)
@@ -143,6 +157,12 @@ void processPermsCommand(const std::vector<Polygon>& polygons, std::istream& in)
 {
     int n;
     if (!(in >> n))
+    {
+        std::cout << INVALID_COMMAND << "\n";
+        return;
+    }
+
+    if (n < 3)
     {
         std::cout << INVALID_COMMAND << "\n";
         return;

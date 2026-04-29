@@ -48,8 +48,15 @@ namespace kirsanov
                 poly.points.push_back({ x, y });
             }
 
-            if (valid && poly.points.size() == static_cast<size_t>(n))
-                polygons.push_back(poly);
+            if (valid && poly.points.size() == static_cast<size_t>(n)) {
+                // Проверяем, что после последней точки нет лишних символов
+                char leftover;
+                if (!(iss >> leftover))
+                {
+                    polygons.push_back(poly);
+                }
+                // Если есть leftover — пропускаем строку
+            }
         }
 
         return polygons;
