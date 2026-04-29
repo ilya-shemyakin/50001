@@ -1,6 +1,6 @@
 ﻿#include "polygon.h"
-#include <cmath>      
-#include <algorithm>  
+#include <cmath>
+#include <algorithm>
 #include <cstddef>
 
 namespace kirsanov
