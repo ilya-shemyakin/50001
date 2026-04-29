@@ -1,16 +1,16 @@
-#ifndef CONSTANTS_H
+п»ї#ifndef CONSTANTS_H
 #define CONSTANTS_H
 
 #include <string>
 
 namespace kirsanov
 {
-    // Сообщения об ошибках
+    // РЎРѕРѕР±С‰РµРЅРёСЏ РѕР± РѕС€РёР±РєР°С…
     const std::string INVALID_COMMAND = "<INVALID COMMAND>";
     const std::string USAGE = "Usage: ";
     const std::string ERROR_PREFIX = "Error: ";
 
-    // Команды (для избежания опечаток)
+    // РљРѕРјР°РЅРґС‹ (РґР»СЏ РёР·Р±РµР¶Р°РЅРёСЏ РѕРїРµС‡Р°С‚РѕРє)
     const std::string CMD_AREA = "AREA";
     const std::string CMD_MAX = "MAX";
     const std::string CMD_MIN = "MIN";
@@ -18,7 +18,7 @@ namespace kirsanov
     const std::string CMD_PERMS = "PERMS";
     const std::string CMD_RIGHTSHAPES = "RIGHTSHAPES";
 
-    // Параметры команд
+    // РџР°СЂР°РјРµС‚СЂС‹ РєРѕРјР°РЅРґ
     const std::string PARAM_EVEN = "EVEN";
     const std::string PARAM_ODD = "ODD";
     const std::string PARAM_MEAN = "MEAN";

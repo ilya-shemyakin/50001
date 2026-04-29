@@ -1,7 +1,8 @@
-#include "reader.h"
+п»ї#include "reader.h"
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
+#include <cstddef>
 
 namespace kirsanov
 {
@@ -14,30 +15,30 @@ namespace kirsanov
         std::vector<Polygon> polygons;
         std::string line;
 
-        // Читаем файл построчно
+        // Р§РёС‚Р°РµРј С„Р°Р№Р» РїРѕСЃС‚СЂРѕС‡РЅРѕ
         while (std::getline(file, line))
         {
             if (line.empty())
-                continue;  // пропускаем пустые строки
+                continue;  // РїСЂРѕРїСѓСЃРєР°РµРј РїСѓСЃС‚С‹Рµ СЃС‚СЂРѕРєРё
 
             std::istringstream iss(line);
             int n;
-            iss >> n;  // читаем количество вершин
+            iss >> n;  // С‡РёС‚Р°РµРј РєРѕР»РёС‡РµСЃС‚РІРѕ РІРµСЂС€РёРЅ
 
             if (iss.fail() || n < 3)
-                continue;  // некорректное количество вершин — игнорируем
+                continue;  // РЅРµРєРѕСЂСЂРµРєС‚РЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РІРµСЂС€РёРЅ вЂ” РёРіРЅРѕСЂРёСЂСѓРµРј
 
-            Polygon poly; //временный объект для сбора вершин
+            Polygon poly; //РІСЂРµРјРµРЅРЅС‹Р№ РѕР±СЉРµРєС‚ РґР»СЏ СЃР±РѕСЂР° РІРµСЂС€РёРЅ
             bool valid = true;
 
-            // Читаем n точек в формате (x;y)
+            // Р§РёС‚Р°РµРј n С‚РѕС‡РµРє РІ С„РѕСЂРјР°С‚Рµ (x;y)
             for (int i = 0; i < n; ++i)
             {
                 char c1, c2, c3;
                 int x, y;
                 iss >> c1 >> x >> c2 >> y >> c3;
 
-                // Проверяем формат
+                // РџСЂРѕРІРµСЂСЏРµРј С„РѕСЂРјР°С‚
                 if (iss.fail() || c1 != '(' || c2 != ';' || c3 != ')')
                 {
                     valid = false;

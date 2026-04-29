@@ -1,8 +1,8 @@
-#include "iotypes.h"
+п»ї#include "iotypes.h"
 
 namespace kirsanov
 {
-    // Чтение точки: (x;y)
+    // Р§С‚РµРЅРёРµ С‚РѕС‡РєРё: (x;y)
     std::istream& operator>>(std::istream& in, PointIO&& dest)
     {
         std::istream::sentry sentry(in);
@@ -23,7 +23,7 @@ namespace kirsanov
         return in;
     }
 
-    // Чтение многоугольника: N (x1;y1) (x2;y2) ... (xN;yN)
+    // Р§С‚РµРЅРёРµ РјРЅРѕРіРѕСѓРіРѕР»СЊРЅРёРєР°: N (x1;y1) (x2;y2) ... (xN;yN)
     std::istream& operator>>(std::istream& in, PolygonIO&& dest)
     {
         std::istream::sentry sentry(in);
@@ -42,7 +42,7 @@ namespace kirsanov
         for (int i = 0; i < n; ++i)
         {
             Point p;
-            in >> PointIO{ p };  // рекурсивно читаем точку
+            in >> PointIO{ p };  // СЂРµРєСѓСЂСЃРёРІРЅРѕ С‡РёС‚Р°РµРј С‚РѕС‡РєСѓ
             if (in.fail())
             {
                 in.setstate(std::ios::failbit);

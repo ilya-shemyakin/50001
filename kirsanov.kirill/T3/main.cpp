@@ -1,4 +1,4 @@
-#include "polygon.h"
+п»ї#include "polygon.h"
 #include "reader.h"
 #include "commands.h"
 #include "iofmtguard.h"
@@ -7,18 +7,19 @@
 #include <iomanip>
 #include <string>
 #include <limits>
+#include <cstddef>
 
 using namespace kirsanov;
 
-// Обработка AREA <EVEN|ODD|MEAN|num>
+// РћР±СЂР°Р±РѕС‚РєР° AREA <EVEN|ODD|MEAN|num>
 void processAreaCommand(const std::vector<Polygon>& polygons, std::istream& in)
 {
     std::string param;
     in >> param;
     try
     {
-        iofmtguard guard(std::cout);               // сохраняем формат
-        std::cout << std::fixed << std::setprecision(1);  // один знак после запятой
+        iofmtguard guard(std::cout);               // СЃРѕС…СЂР°РЅСЏРµРј С„РѕСЂРјР°С‚
+        std::cout << std::fixed << std::setprecision(1);  // РѕРґРёРЅ Р·РЅР°Рє РїРѕСЃР»Рµ Р·Р°РїСЏС‚РѕР№
 
         if (param == PARAM_EVEN)
         {
@@ -50,7 +51,7 @@ void processAreaCommand(const std::vector<Polygon>& polygons, std::istream& in)
     }
 }
 
-// Обработка MAX <AREA|VERTEXES>
+// РћР±СЂР°Р±РѕС‚РєР° MAX <AREA|VERTEXES>
 void processMaxCommand(const std::vector<Polygon>& polygons, std::istream& in)
 {
     std::string param;
@@ -77,7 +78,7 @@ void processMaxCommand(const std::vector<Polygon>& polygons, std::istream& in)
     }
 }
 
-// Обработка MIN <AREA|VERTEXES>
+// РћР±СЂР°Р±РѕС‚РєР° MIN <AREA|VERTEXES>
 void processMinCommand(const std::vector<Polygon>& polygons, std::istream& in)
 {
     std::string param;
@@ -104,7 +105,7 @@ void processMinCommand(const std::vector<Polygon>& polygons, std::istream& in)
     }
 }
 
-// Обработка COUNT <EVEN|ODD|num>
+// РћР±СЂР°Р±РѕС‚РєР° COUNT <EVEN|ODD|num>
 void processCountCommand(const std::vector<Polygon>& polygons, std::istream& in)
 {
     std::string param;
@@ -137,7 +138,7 @@ void processCountCommand(const std::vector<Polygon>& polygons, std::istream& in)
     }
 }
 
-// Обработка PERMS <Polygon>
+// РћР±СЂР°Р±РѕС‚РєР° PERMS <Polygon>
 void processPermsCommand(const std::vector<Polygon>& polygons, std::istream& in)
 {
     int n;
@@ -169,7 +170,7 @@ void processPermsCommand(const std::vector<Polygon>& polygons, std::istream& in)
     std::cout << countPerms(polygons, target) << "\n";
 }
 
-// Обработка RIGHTSHAPES
+// РћР±СЂР°Р±РѕС‚РєР° RIGHTSHAPES
 void processRightShapesCommand(const std::vector<Polygon>& polygons)
 {
     std::cout << countRightShapes(polygons) << "\n";
@@ -177,14 +178,14 @@ void processRightShapesCommand(const std::vector<Polygon>& polygons)
 
 int main(int argc, char* argv[])
 {
-    // Проверка аргументов командной строки
+    // РџСЂРѕРІРµСЂРєР° Р°СЂРіСѓРјРµРЅС‚РѕРІ РєРѕРјР°РЅРґРЅРѕР№ СЃС‚СЂРѕРєРё
     if (argc != 2)
     {
         std::cerr << USAGE << argv[0] << " filename\n";
         return 1;
     }
 
-    // Чтение фигур из файла
+    // Р§С‚РµРЅРёРµ С„РёРіСѓСЂ РёР· С„Р°Р№Р»Р°
     std::vector<Polygon> polygons;
     try
     {
@@ -196,9 +197,9 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    // Основной цикл обработки команд
+    // РћСЃРЅРѕРІРЅРѕР№ С†РёРєР» РѕР±СЂР°Р±РѕС‚РєРё РєРѕРјР°РЅРґ
     std::string cmd;
-    while (std::cin >> cmd)  // завершается по EOF (Ctrl+Z)
+    while (std::cin >> cmd)  // Р·Р°РІРµСЂС€Р°РµС‚СЃСЏ РїРѕ EOF (Ctrl+Z)
     {
         if (cmd == CMD_AREA)
         {

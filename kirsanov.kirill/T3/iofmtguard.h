@@ -1,4 +1,4 @@
-#ifndef IOFMTGUARD_H
+﻿#ifndef IOFMTGUARD_H
 #define IOFMTGUARD_H
 
 #include <ios>
