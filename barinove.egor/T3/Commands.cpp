@@ -3,6 +3,7 @@
 #include "Polygon.h"
 #include <iomanip>
 #include <sstream>
+#include <iterator>
 
 std::vector<std::string> split(const std::string& line) {
     std::istringstream iss(line);
@@ -149,3 +150,4 @@ void processCommands(const std::vector<Polygon>& figures) {
         }
     }
 }
+

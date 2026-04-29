@@ -1,4 +1,4 @@
-﻿#include "Functions.h"
+#include "Functions.h"
 
 #include<algorithm>
 #include <functional>
@@ -88,7 +88,7 @@ double sumAreaOdd(const std::vector<Polygon>& figures) {
 double sumAreaByVertexCount(const std::vector<Polygon>& figures, int vertexCount) {
     return std::accumulate(figures.cbegin(), figures.cend(), 0.0,
         [&](double sum, const Polygon& p) {
-            return sum + (p.points.size() == vertexCount ? area(p) : 0.0);
+            return sum + (p.points.size() == static_cast<size_t>(vertexCount) ? area(p) : 0.0);
         });
 }
 double meanArea(const std::vector<Polygon>& figures) {

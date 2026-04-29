@@ -1,4 +1,4 @@
-﻿#ifndef POLYGON_H
+#ifndef POLYGON_H
 #define POLYGON_H
 
 #include <vector>
