@@ -164,6 +164,8 @@ void processPermsCommand(const std::vector<Polygon>& polygons, std::istream& in)
 
     if (n < 3)
     {
+        // Очищаем всю оставшуюся строку, чтобы не засорять следующий ввод
+        in.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::cout << INVALID_COMMAND << "\n";
         return;
     }
