@@ -6,8 +6,8 @@
 
 
 struct Point {
-    int x, y; 
-}; 
+    int x, y;
+};
 
 struct Polygon {
     std::vector< Point > points;
@@ -19,3 +19,4 @@ Polygon parsePolygon(const std::string& str);
 std::vector<Polygon> readShapesFromFile(const std::string& filename);
 
 #endif
+

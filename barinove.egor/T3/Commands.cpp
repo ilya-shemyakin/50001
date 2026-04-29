@@ -1,4 +1,4 @@
-﻿#include "Commands.h"
+#include "Commands.h"
 #include "Functions.h"
 #include "Polygon.h"
 #include <iomanip>

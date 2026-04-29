@@ -1,4 +1,4 @@
-﻿#include "Polygon.h"
+#include "Polygon.h"
 #include <algorithm>
 #include <stdexcept>
 #include <iterator>

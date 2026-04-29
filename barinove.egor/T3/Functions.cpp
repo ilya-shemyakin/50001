@@ -74,7 +74,7 @@ int minVertexCount(const std::vector<Polygon>& figures) {
 }
 
 double sumAreaEven(const std::vector<Polygon>& figures) {
-    return std::accumulate(figures.cbegin(), figures.cend(),0.0, 
+    return std::accumulate(figures.cbegin(), figures.cend(),0.0,
         [](double sum, const Polygon& p) {
             return sum + (p.points.size() % 2 == 0 ? area(p) : 0.0);
         });
@@ -117,3 +117,4 @@ int maxConsecutiveEqual(const std::vector<Polygon>& figures, const Polygon& targ
         });
     return result.first;
 }
+

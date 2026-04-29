@@ -21,4 +21,5 @@ int countLessThanArea(const std::vector<Polygon>& figures, double targetArea);
 
 int maxConsecutiveEqual(const std::vector<Polygon>& figures, const Polygon& target);
 
-#endif 
+#endif
+
