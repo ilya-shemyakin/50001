@@ -26,6 +26,7 @@ namespace kirsanov
             int n;
             iss >> n;  // читаем количество вершин
 
+            //проверка на то, удалось ли чтение
             if (iss.fail() || n < 3)
                 continue;
 

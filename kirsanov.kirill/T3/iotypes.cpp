@@ -13,6 +13,11 @@ namespace kirsanov
         int x, y;
         in >> c1 >> x >> c2 >> y >> c3;
 
+        if (in.fail())
+        {
+            return in;
+        }
+
         if (c1 != '(' || c2 != ';' || c3 != ')')
         {
             in.setstate(std::ios::failbit);
