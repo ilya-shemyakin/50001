@@ -6,20 +6,13 @@
 namespace kirsanov
 {
     // Сумма площадей фигур, удовлетворяющих предикату
-    // Сначала вычисляем все площади
+    // Используем accumulate с лямбдой, которая суммирует только подходящие площади
     double totalArea(const std::vector<Polygon>& polys, std::function<bool(const Polygon&)> pred)
     {
-        std::vector<double> areas(polys.size());
-        std::transform(polys.begin(), polys.end(), areas.begin(),
-            [](const Polygon& p) { return p.area(); });
-
-        double sum = 0.0;
-        for (size_t i = 0; i < polys.size(); ++i)
-        {
-            if (pred(polys[i]))
-                sum += areas[i];
-        }
-        return sum;
+        return std::accumulate(polys.begin(), polys.end(), 0.0,
+            [&pred](double sum, const Polygon& p) {
+                return sum + (pred(p) ? p.area() : 0.0);
+            });
     }
 
     // Средняя арифметическая площадь
@@ -28,11 +21,10 @@ namespace kirsanov
         if (polys.empty())
             throw std::runtime_error("No polygons");
 
-        std::vector<double> areas(polys.size());
-        std::transform(polys.begin(), polys.end(), areas.begin(),
-            [](const Polygon& p) { return p.area(); });
-
-        double sum = std::accumulate(areas.begin(), areas.end(), 0.0);
+        double sum = std::accumulate(polys.begin(), polys.end(), 0.0,
+            [](double acc, const Polygon& p) {
+                return acc + p.area();
+            });
         return sum / polys.size();
     }
 
@@ -42,11 +34,11 @@ namespace kirsanov
         if (polys.empty())
             throw std::runtime_error("No polygons");
 
-        std::vector<double> areas(polys.size());
-        std::transform(polys.begin(), polys.end(), areas.begin(),
-            [](const Polygon& p) { return p.area(); });
-
-        return *std::max_element(areas.begin(), areas.end());
+        auto it = std::max_element(polys.begin(), polys.end(),
+            [](const Polygon& a, const Polygon& b) {
+                return a.area() < b.area();
+            });
+        return it->area();
     }
 
     // Максимальное количество вершин
@@ -55,11 +47,11 @@ namespace kirsanov
         if (polys.empty())
             throw std::runtime_error("No polygons");
 
-        std::vector<size_t> verts(polys.size());
-        std::transform(polys.begin(), polys.end(), verts.begin(),
-            [](const Polygon& p) { return p.vertexCount(); });
-
-        return *std::max_element(verts.begin(), verts.end());
+        auto it = std::max_element(polys.begin(), polys.end(),
+            [](const Polygon& a, const Polygon& b) {
+                return a.vertexCount() < b.vertexCount();
+            });
+        return it->vertexCount();
     }
 
     // Минимальная площадь
@@ -68,11 +60,11 @@ namespace kirsanov
         if (polys.empty())
             throw std::runtime_error("No polygons");
 
-        std::vector<double> areas(polys.size());
-        std::transform(polys.begin(), polys.end(), areas.begin(),
-            [](const Polygon& p) { return p.area(); });
-
-        return *std::min_element(areas.begin(), areas.end());
+        auto it = std::min_element(polys.begin(), polys.end(),
+            [](const Polygon& a, const Polygon& b) {
+                return a.area() < b.area();
+            });
+        return it->area();
     }
 
     // Минимальное количество вершин
@@ -81,20 +73,20 @@ namespace kirsanov
         if (polys.empty())
             throw std::runtime_error("No polygons");
 
-        std::vector<size_t> verts(polys.size());
-        std::transform(polys.begin(), polys.end(), verts.begin(),
-            [](const Polygon& p) { return p.vertexCount(); });
-
-        return *std::min_element(verts.begin(), verts.end());
+        auto it = std::min_element(polys.begin(), polys.end(),
+            [](const Polygon& a, const Polygon& b) {
+                return a.vertexCount() < b.vertexCount();
+            });
+        return it->vertexCount();
     }
 
-    // Обёртка над std::count_if — подсчёт по предикату
+    // Обёртка над std::count_if
     size_t countPolygons(const std::vector<Polygon>& polys, std::function<bool(const Polygon&)> pred)
     {
         return std::count_if(polys.begin(), polys.end(), pred);
     }
 
-    // PERMS: сколько фигур являются перестановкой target
+    // PERMS: сколько фигур являются перестановкой целевой
     size_t countPerms(const std::vector<Polygon>& polys, const Polygon& target)
     {
         return std::count_if(polys.begin(), polys.end(),

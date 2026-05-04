@@ -8,23 +8,27 @@
 
 namespace kirsanov
 {
-    // AREA команды
+    // Базовая сумма площадей по предикату
     double totalArea(const std::vector<Polygon>& polys, std::function<bool(const Polygon&)> pred);
+
+    // Средняя арифметическая площадь
     double meanArea(const std::vector<Polygon>& polys);
 
-    // MAX/MIN команды
+    // Максимальная площадь и количество вершин
     double maxArea(const std::vector<Polygon>& polys);
     size_t maxVertexes(const std::vector<Polygon>& polys);
+
+    // Минимальная площадь и количество вершин
     double minArea(const std::vector<Polygon>& polys);
     size_t minVertexes(const std::vector<Polygon>& polys);
 
-    // COUNT команды
+    // Подсчёт фигур по предикату
     size_t countPolygons(const std::vector<Polygon>& polys, std::function<bool(const Polygon&)> pred);
 
-    // PERMS команда
+    // PERMS: количество перестановок
     size_t countPerms(const std::vector<Polygon>& polys, const Polygon& target);
 
-    // RIGHTSHAPES команда
+    // RIGHTSHAPES: количество фигур с прямыми углами
     size_t countRightShapes(const std::vector<Polygon>& polys);
 }
 

@@ -23,7 +23,6 @@ namespace kirsanov
         return in;
     }
 
-    // Чтение многоугольника: N (x1;y1) (x2;y2) ... (xN;yN)
     std::istream& operator>>(std::istream& in, PolygonIO&& dest)
     {
         std::istream::sentry sentry(in);

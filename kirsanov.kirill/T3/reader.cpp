@@ -1,4 +1,5 @@
 ﻿#include "reader.h"
+#include "iotypes.h"
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
@@ -26,36 +27,32 @@ namespace kirsanov
             iss >> n;  // читаем количество вершин
 
             if (iss.fail() || n < 3)
-                continue;  // некорректное количество вершин — игнорируем
+                continue;
 
-            Polygon poly; //временный объект для сбора вершин
+            Polygon poly;
             bool valid = true;
 
-            // Читаем n точек в формате (x;y)
+            // Читаем n точек, используя обёртку PointIO
             for (int i = 0; i < n; ++i)
             {
-                char c1, c2, c3;
-                int x, y;
-                iss >> c1 >> x >> c2 >> y >> c3;
-
-                // Проверяем формат
-                if (iss.fail() || c1 != '(' || c2 != ';' || c3 != ')')
+                Point p;
+                iss >> PointIO{ p };  // читаем точку в формате (x;y)
+                if (iss.fail())
                 {
                     valid = false;
                     break;
                 }
-
-                poly.points.push_back({ x, y });
+                poly.points.push_back(p);
             }
 
-            if (valid && poly.points.size() == static_cast<size_t>(n)) {
-                // Проверяем, что после последней точки нет лишних символов
+            // Если все точки прочитаны и нет лишних символов — добавляем фигуру
+            if (valid && poly.points.size() == static_cast<size_t>(n))
+            {
                 char leftover;
                 if (!(iss >> leftover))
                 {
                     polygons.push_back(poly);
                 }
-                // Если есть leftover — пропускаем строку
             }
         }
 
