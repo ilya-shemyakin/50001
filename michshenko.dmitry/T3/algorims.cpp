@@ -257,7 +257,6 @@ bool isPolygonsEqual(const Polygon& a, const Polygon& b) {
 
     if (it != a.points.end()) {
         // Явно указываем итераторы и предикат
-        auto bStart = b.points.begin();
         auto bEnd = b.points.end();
         auto offset = std::distance(a.points.begin(), it);
 
