@@ -66,7 +66,7 @@ double areaNum(int value, const std::vector<Polygon>&  pols) {
     return std::accumulate(
         pols.begin(), pols.end(), 0.0,
         [&](double sum, const Polygon& current) {
-            if (current.points.size() == value) {
+            if (current.points.size() == static_cast<size_t>(value)) {
                 return sum + areaPolygons(current.points);
             }
             return sum;
