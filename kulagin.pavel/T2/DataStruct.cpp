@@ -5,20 +5,20 @@
 
 // Разделитель
 std::istream& operator>>(std::istream& in, DelimiterIO&& dest) {
-	std::istream::sentry sentry(in);
+    std::istream::sentry sentry(in);
 
-	if (!sentry) {
-		return in;
-	}
+    if (!sentry) {
+        return in;
+    }
 
-	char c = '0';
-	in >> c;
+    char c = '0';
+    in >> c;
 
-	if (in && (c != dest.exp)) {
-		in.setstate(std::ios::failbit);
-	}
+    if (in && (c != dest.exp)) {
+        in.setstate(std::ios::failbit);
+    }
 
-	return in;
+    return in;
 }
 
 // DBL LIT

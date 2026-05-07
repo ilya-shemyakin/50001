@@ -5,25 +5,25 @@
 
 struct DataStruct
 {
-	double key1;             // DBL LIT
-	unsigned long long key2; // ULL HEX
-	std::string key3;
+    double key1;             // DBL LIT
+    unsigned long long key2; // ULL HEX
+    std::string key3;
 };
 
 struct DelimiterIO {
-	char exp;
+    char exp;
 };
 
 struct DblLitIO {
-	double& ref;
+    double& ref;
 };
 
 struct UllHexIO {
-	unsigned long long& ref;
+    unsigned long long& ref;
 };
 
 struct StringIO {
-	std::string& ref;
+    std::string& ref;
 };
 
 std::istream& operator>>(std::istream& in, DelimiterIO&& dest);
