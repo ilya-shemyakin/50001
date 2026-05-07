@@ -44,5 +44,10 @@ std::istream& operator>>(std::istream& in, Polygon& pol) {
         pol.points.push_back(p);
     }
 
+    char nextChar;
+    if (in >> nextChar) {
+        in.setstate(std::ios::failbit);
+    }
+
     return in;
 }
