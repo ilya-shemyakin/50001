@@ -5,7 +5,7 @@
 
 struct DataStruct
 {
-    double key1;             // DBL LIT
+    double key1; // DBL LIT
     unsigned long long key2; // ULL HEX
     std::string key3;
 };
