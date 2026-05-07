@@ -3,7 +3,6 @@
 #include <iomanip>
 #include <cstdlib>
 
-// Разделитель
 std::istream& operator>>(std::istream& in, DelimiterIO&& dest) {
     std::istream::sentry sentry(in);
 
@@ -21,7 +20,6 @@ std::istream& operator>>(std::istream& in, DelimiterIO&& dest) {
     return in;
 }
 
-// DBL LIT
 std::istream& operator>>(std::istream& in, DblLitIO&& dest)
 {
     std::string s;
@@ -64,7 +62,6 @@ std::istream& operator>>(std::istream& in, DblLitIO&& dest)
     return in;
 }
 
-// ULL HEX
 std::istream& operator>>(std::istream& in, UllHexIO&& dest) {
     std::istream::sentry sentry(in);
 
@@ -74,7 +71,7 @@ std::istream& operator>>(std::istream& in, UllHexIO&& dest) {
     }
 
     iofmtguard guard(in);
-    
+
     char c1 = '0';
     char c2 = '0';
     in >> c1 >> c2;
