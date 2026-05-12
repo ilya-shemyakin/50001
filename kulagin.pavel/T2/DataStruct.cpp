@@ -22,17 +22,23 @@ std::istream& operator>>(std::istream& in, DelimiterIO&& dest) {
 
 std::istream& operator>>(std::istream& in, DblLitIO&& dest)
 {
+    std::istream::sentry sentry(in);
+
+    if (!sentry) {
+        return in;
+    }
+    
     std::string s;
     char c;
 
-    while (in.get(c) && c != ':' && c != ')')
+    while (in.get(c) && c != 'd' && c != 'D')
     {
         s += c;
     }
 
-    if (c == ':' || c == ')')
-    {
-        in.unget();
+    if (!in || (c != 'd' && c != 'D')) {
+        in.setstate(std::ios::failbit);
+        return in;
     }
 
     size_t dotPos = s.find('.');
@@ -43,22 +49,31 @@ std::istream& operator>>(std::istream& in, DblLitIO&& dest)
         return in;
     }
 
-    if (dotPos + 1 >= s.size() || !isdigit(s[dotPos + 1]))
-    {
+    if (dotPos == 0) {
         in.setstate(std::ios::failbit);
         return in;
     }
 
-    if (s.back() != 'd' && s.back() != 'D')
-    {
+    for (size_t i = 0; i < dotPos; ++i) {
+        if (!isdigit(s[i])) {
+            in.setstate(std::ios::failbit);
+            return in;
+        }
+    }
+
+    if (dotPos + 1 >= s.size()) {
         in.setstate(std::ios::failbit);
         return in;
     }
 
-    s.pop_back();
+    for (size_t i = dotPos + 1; i < s.size(); ++i) {
+        if (!isdigit(s[i])) {
+            in.setstate(std::ios::failbit);
+            return in;
+        }
+    }
 
     dest.ref = std::stod(s);
-
     return in;
 }
 
@@ -86,7 +101,6 @@ std::istream& operator>>(std::istream& in, UllHexIO&& dest) {
     return in;
 }
 
-// String
 std::istream& operator>>(std::istream& in, StringIO&& dest)
 {
     std::istream::sentry sentry(in);
@@ -166,7 +180,7 @@ std::istream& operator>>(std::istream& in, DataStruct& dest) {
     }
 
     if (hasKey1 && hasKey2 && hasKey3) {
-        dest = temp;
+        dest = std::move(temp);
     }
     else {
         in.setstate(std::ios::failbit);
