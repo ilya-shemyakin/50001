@@ -27,7 +27,7 @@ std::istream& operator>>(std::istream& in, DblLitIO&& dest)
     if (!sentry) {
         return in;
     }
-    
+
     std::string s;
     char c;
 
