@@ -36,7 +36,7 @@ int main(int argc, char* argv[]) {
                 if (!(cmdStream >> target)) {
                     std::cout << "<INVALID COMMAND>" << std::endl;
                 }
-                int removed = rmecho(polygons, target);
+                size_t removed = rmecho(polygons, target);
                 std::cout << removed << std::endl;
             }
             else if (cmd == "SAME") {
@@ -44,7 +44,7 @@ int main(int argc, char* argv[]) {
                 if (!(cmdStream >> target)) {
                     std::cout << "<INVALID COMMAND>" << std::endl;
                 }
-                int count = same(polygons, target);
+                size_t count = same(polygons, target);
                 std::cout << count << std::endl;
             }
             else {

@@ -4,7 +4,7 @@
 
 std::istream& operator>>(std::istream& in, Polygon& dest)
 {
-    int nPoints = 0;
+    size_t nPoints = 0;
     in >> nPoints;
 
     Polygon polygon;

@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <vector>
+#include <iostream>
 #include <iterator>
 #include "Polygon.h"
 #include "functions.h"
@@ -19,7 +20,7 @@ std::vector<Point> normalize(const Polygon& poly) {
     return norm;
 }
 
-int rmecho(std::vector<Polygon>& polygons, const Polygon& target) {
+size_t rmecho(std::vector<Polygon>& polygons, const Polygon& target) {
     auto it = std::unique(polygons.begin(), polygons.end(),
         [&target](const Polygon& a, const Polygon& b) {
             return a == target && b == target;
@@ -29,7 +30,7 @@ int rmecho(std::vector<Polygon>& polygons, const Polygon& target) {
     return removed;
 }
 
-int same(const std::vector<Polygon>& polygons, const Polygon& target) {
+size_t same(const std::vector<Polygon>& polygons, const Polygon& target) {
     auto targetNorm = normalize(target);
     return std::count_if(polygons.begin(), polygons.end(),
         [&targetNorm](const Polygon& p) {
