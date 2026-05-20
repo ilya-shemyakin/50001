@@ -5,20 +5,20 @@
 
 std::istream& operator>>(std::istream& in, Point& dest)
 {
-	using sep = DelimiterIO;
-	int x = 0;
-	int y = 0;
+    using sep = DelimiterIO;
+    int x = 0;
+    int y = 0;
 
-	in >> sep{ '(' };
-	in >> x;
-	in >> sep{ ';' };
-	in >> y;
-	in >> sep{ ')' };
+    in >> sep{ '(' };
+    in >> x;
+    in >> sep{ ';' };
+    in >> y;
+    in >> sep{ ')' };
 
-	if (in) {
-		dest.x = x;
-		dest.y = y;
-	}
+    if (in) {
+        dest.x = x;
+        dest.y = y;
+    }
 
-	return in;
+    return in;
 }

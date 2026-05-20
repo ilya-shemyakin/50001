@@ -5,8 +5,8 @@
 
 struct Polygon
 {
-	std::vector<Point> points;
-	bool operator==(const Polygon& other) const { return points == other.points; }
+    std::vector<Point> points;
+    bool operator==(const Polygon& other) const { return points == other.points; }
 };
 
 std::istream& operator>>(std::istream& in, Polygon& dest);
