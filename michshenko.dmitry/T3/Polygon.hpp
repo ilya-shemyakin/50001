@@ -14,8 +14,7 @@ struct Polygon
 };
 
 // Для INFRAME
-struct BoundingBox
-{
+struct BoundingBox {
     double minX, minY, maxX, maxY;
 };
 
